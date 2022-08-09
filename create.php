@@ -74,7 +74,7 @@ if(isset($_POST['submit']))
         
 
     $checked_count = count($_POST['hobbies']);
-    $checkbox1=$_POST['hobbies'];
+    $checkbox1=$_POST['hobbies'];    
     $chk="";    
    
     foreach($checkbox1 as $chk1)
@@ -207,6 +207,7 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
                         <span class="error" style="color: red;"><?php echo $imageErr; ?> </span>  
 
                      </div>
+                     <a href="index.php" class="btn btn-secondary btn-sm float-left">Back</a>
                      <button type="submit" name="submit" value="submit" class="btn btn-success btn-sm float-right">Submit</button>
                   </form>
                </div>

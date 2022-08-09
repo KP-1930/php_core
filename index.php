@@ -3,11 +3,14 @@ include('header.php');
 include('db.php');
 ?>
 
-<h3 class="text-center">User List</h3>
+<div>
+	<h3 class="text-center">User List <a href="create.php" class="btn btn-success btn-sm">Add</a></h3>	
+</div>
 <div class="container">
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>			
+			<th>Id</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Email</th>
@@ -31,6 +34,9 @@ include('db.php');
         ?>
 			<!--Fetch the Records -->
 			<tr>								
+				<td>
+					<?php  echo $row['id'];?>					
+				</td>
 				<td>
 					<?php  echo $row['first_name'];?>					
 				</td>
@@ -56,7 +62,11 @@ include('db.php');
 					<?php  echo $row['hobbies'];?>
 				</td>
                 <td><img src="images/<?php  echo $row['image'];?>" width="80" height="80"></td>
-				<td> <a href="read.php?viewid=<?php echo htmlentities ($row['ID']);?>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> <a href="edit.php?editid=<?php echo htmlentities ($row['ID']);?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> <a href="index.php?delid=<?php echo ($row['ID']);?>&&ppic=<?php echo $row['ProfilePic'];?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a> </td>
+				<td> 
+					<a href="read.php?id=<?php echo $row['id']; ?>" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> 
+					<a href="edit.php?id=<?php echo $row['id']; ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> 
+					<a href="delete.php?id=<?php echo $row['id']; ?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
+				</td>
 			</tr>
 			<?php 
 $cnt=$cnt+1;
